@@ -17,8 +17,6 @@ export async function register(formData) {
     const { data } = await apiServiceAuth.post("Auth/Register", formData);
     return data;
   } catch (error) {
-    if(isAxiosError(error) && error.response){
-      throw new Error(error.response.data.errors);
-    }
+    throw new Error(error.response.data);
   }
 }

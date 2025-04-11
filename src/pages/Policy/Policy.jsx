@@ -23,7 +23,6 @@ export default function Policy() {
   const { mutate: insertMutate } = useMutation({
     mutationFn: insertPolicy,
     onError: (error) => {
-      console.error('Error en la inserción:', error.message);
       ToastError(error.message);
     },
     onSuccess: (data) => {
@@ -59,36 +58,23 @@ export default function Policy() {
     },
   });
 
-  const validateForm = (values) => {
-    const errors = {};
-    if (!values.numeroPoliza) errors.numeroPoliza = "Este campo es obligatorio.";
-    if (!values.tipoPolizaDescripcion) errors.tipoPolizaDescripcion = "Este campo es obligatorio.";
-    if (!values.coberturaDescripcion) errors.coberturaDescripcion = "Este campo es obligatorio.";
-    if (!values.estadoPolizaDescripcion) errors.estadoPolizaDescripcion = "Este campo es obligatorio.";
-    if (!values.prima) errors.prima = "Este campo es obligatorio.";
-    if (!values.aseguradora) errors.aseguradora = "Este campo es obligatorio.";
-    if (!values.cedulaAsegurado) errors.cedulaAsegurado = "Este campo es obligatorio.";
-    if (!values.montoAsegurado) errors.montoAsegurado = "Este campo es obligatorio.";
-    return errors;
-  };
-
-
-  const handleSave = async ({ values, table }) => {
-    const errors = validateForm(values);
-    if (Object.keys(errors).length > 0) {
-      setValidationErrors(errors);
-      return; 
-    }
-    console.log(errors)
-    insertMutate(values);
-    table.setCreatingRow(null);
-  };
-
   const handleUpdate = async ({ values, table, row}) => {
     const id = row.original.idPoliza;
     updateMutate({id, values});
     table.setEditingRow(null);
   };
+
+
+  const handleSave = async ({ values, table}) => {
+    const errors = validateForm(values);
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return; 
+    }
+    insertMutate(values);
+    table.setCreatingRow(null);
+  };
+
 
   const handleDelete = (row) => {
     SweetAlertEliminar(
@@ -99,8 +85,27 @@ export default function Policy() {
     );
   };
 
+
+  const validateForm = (values) => {
+    const errors = {};
+    if (!values.numeroPoliza) errors.numeroPoliza = "Este campo es obligatorio.";
+    if (!values.tipoPolizaDescripcion) errors.tipoPolizaDescripcion = "Este campo es obligatorio.";
+    if (!values.coberturaDescripcion) errors.coberturaDescripcion = "Este campo es obligatorio.";
+    if (!values.estadoPolizaDescripcion) errors.estadoPolizaDescripcion = "Este campo es obligatorio.";
+    if (!values.prima) errors.prima = "Este campo es obligatorio.";
+    if (!values.aseguradora) errors.aseguradora = "Este campo es obligatorio.";
+    if (!values.cedulaAsegurado) errors.cedulaAsegurado = "Este campo es obligatorio.";
+    if (!values.montoAsegurado) errors.montoAsegurado = "Este campo es obligatorio.";
+    if (!values.periodo) errors.periodo = "Este campo es obligatorio.";
+    if (!values.fechaEmision) errors.fechaEmision = "Este campo es obligatorio.";
+    if (!values.fechaInclusion) errors.fechaInclusion = "Este campo es obligatorio.";
+    if (!values.fechaVencimiento) errors.fechaVencimiento = "Este campo es obligatorio.";
+    return errors;
+  };
+
   const columns = columnsPolicys(validationErrors, setValidationErrors);
   const { userInfo } = useUserContext();
+
   return (
     <>
       {isLoading && <Spinner open={true} />}

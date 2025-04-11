@@ -107,6 +107,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         editSelectOptions: typePolicy,    
         muiEditTextFieldProps: {
           select: true,
+          error: !!validationErrors?.tipoPolizaDescripcion,
+          helperText: validationErrors?.tipoPolizaDescripcion,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              tipoPolizaDescripcion: Val.validate(e.target.value),
+            });
+          },
         },
       },
       {
@@ -119,6 +127,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         editSelectOptions: coverage,
         muiEditTextFieldProps: {
           select: true,
+          error: !!validationErrors?.coberturaDescripcion,
+          helperText: validationErrors?.coberturaDescripcion,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              coberturaDescripcion: Val.validate(e.target.value),
+            });
+          },
         },
       },
       {
@@ -131,6 +147,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         editSelectOptions: statePolicy,
         muiEditTextFieldProps: {
           select: true,
+          error: !!validationErrors?.estadoPolizaDescripcion,
+          helperText: validationErrors?.estadoPolizaDescripcion,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              estadoPolizaDescripcion: Val.validate(e.target.value),
+            });
+          },
         },
       },
       {
@@ -163,13 +187,19 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
-          error: !!validationErrors?.fechaVencimiento,
-          helperText: validationErrors?.fechaVencimiento,
-          InputLabelProps: { shrink: true },
-          type: "date",
           inputProps:{
             min: new Date().toISOString().split("T")[0],  
-          }
+          },
+          InputLabelProps: { shrink: true },
+          type: "date",
+          error: !!validationErrors?.fechaVencimiento,
+          helperText: validationErrors?.fechaVencimiento,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              fechaVencimiento: Val.validateBeforeDate(e.target.value),
+            });
+          },
         },
       },
       {
@@ -180,12 +210,18 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
-          InputLabelProps: { shrink: true },
-          error: !!validationErrors?.fechaEmision,
-          helperText: validationErrors?.fechaEmision,
-          type: "date",
           inputProps:{
             max: new Date().toISOString().split("T")[0],  
+          },
+          InputLabelProps: { shrink: true },
+          type: "date",
+          error: !!validationErrors?.fechaEmision,
+          helperText: validationErrors?.fechaEmision,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              fechaEmision: Val.validateDate(e.target.value),
+            });
           },
         },
       },
@@ -217,12 +253,18 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         filterFn: "startsWith",
         columnFilterModeOptions: filterDefault,
         size: 10,
-        muiEditTextFieldProps: {
+       muiEditTextFieldProps: {
           required: true,
           InputLabelProps: { shrink: true },
           type: "date",
           error: !!validationErrors?.periodo,
           helperText: validationErrors?.periodo,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              periodo: Val.validate(e.target.value),
+            });
+          },
         },
       },
       {
@@ -237,6 +279,12 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           type: "date",
           error: !!validationErrors?.fechaInclusion,
           helperText: validationErrors?.fechaInclusion,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              fechaInclusion: Val.validate(e.target.value),
+            });
+          },
         },
       },
       {

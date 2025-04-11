@@ -66,6 +66,15 @@ export const validateDate = (value) => {
   return undefined;
 };
 
+export const validateBeforeDate = (value) => {
+  const currentDate = new Date();
+  const selectedDate = new Date(value);
+  if (selectedDate < currentDate) {
+    return "La fecha no puede ser anterior a hoy.";
+  }
+  return undefined;
+};
+
 export const validateLength = (value, length) => {
 
   if (value.length> length) {
@@ -74,3 +83,7 @@ export const validateLength = (value, length) => {
 
   return undefined;
 };
+
+export const validate = (value) => {
+  if(!value) return "Este campo es obligatorio.";
+}

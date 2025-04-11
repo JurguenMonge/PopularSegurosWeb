@@ -68,6 +68,11 @@ export default function Clients() {
   };
 
   const handleUpdate = async ({ values, table, row}) => {
+    const errors = validateForm(values);
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return; 
+    }
     const id = row.original.cedulaAsegurado;
     updateMutate({id, values});
     table.setEditingRow(null);
