@@ -91,22 +91,22 @@ dotnet ef database update
 Para hacer esto, debemos dar click derecho en Solucion "PopularSegurosBackend" > Propiedades > Configurar proyectos de inicio > Seleccionar todos los proyectos > Botón "Inicia"
 
 ### Login
-6. Cuando se ejecutan las migraciones, se crearán los usuarios y las claves de acceso.
+6. Cuando se ejecutan el proyecto backend, se crearán los usuarios y las claves de acceso.
 
 **Allam**
 ```
 Correo electrónico: allfernandez@bp.fi.cr 
 ```
 ```
-Password: allfernandez2025 
+Password: allFernandez@2025 
 ```
 
 **Alejandro**
 ```
-Correo electrónico: alecampos@bp.fi.cr
+Correo electrónico: aleCampos@bp.fi.cr
 ```
 ```
-Password: alecampos2025 
+Password: aleCampos@2025 
 ```
 
 ## Uso

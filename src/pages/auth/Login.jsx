@@ -53,7 +53,7 @@ export default function Login() {
       .matches(Exp.emailRegex, "El email no es válido"),
       password: Yup.string()
       .min(8, "La contraseña debe tener al menos 8 caracteres")
-      .max(16, "La contraseña debe tener al menos 16 caracteres")
+      .max(20, "La contraseña debe tener menos 20 caracteres")
       .required("La contraseña es requerida")
       .matches(Exp.passwordRegex, "La contraseña debe tener al menos una mayúscula, una minúscula y un número"),
     }),
