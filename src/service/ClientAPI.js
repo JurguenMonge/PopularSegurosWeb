@@ -17,7 +17,7 @@ export async function insertClient(formData) {
     const { data } = await apiServiceClient.post("Cliente", formData);
     return data;
   } catch (error) {
-    throw new Error("Ocurrió un error al guardar el cliente, verifica los campos");
+    throw new Error(error.response.data);
   }
 }
 //Eliminar un cliente

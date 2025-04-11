@@ -22,8 +22,8 @@ export default function Clients() {
 
   const {mutate: insertMutate} = useMutation({
     mutationFn: insertClient,
-    onError: () => {
-      ToastError("Ocurrió un error al guardar el cliente");
+    onError: (error) => {
+      ToastError(error.message);
     },
     onSuccess: (data) => {
       ToastSuccess(data);
