@@ -95,7 +95,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen, variant = "default" }) {
             </svg>
           </button>
           {/* Logo */}
-          <NavLink end to="/dashboard" className="block mx-auto">
+          <NavLink end to="/Policy" className="block mx-auto">
             <div className="flex flex-col items-center">
               <img
                 src={logo}
