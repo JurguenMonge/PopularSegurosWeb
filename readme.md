@@ -13,9 +13,9 @@ Este proyecto es una prueba técnica de Popular Seguros, a continuación se esta
 ## Tabla de contenido
 - [Preguntas](#preguntas)
 - [Uso](#uso)
-  -[Usuarios](#usuarios)
-  -[Polizas](#polizas)
-  -[Clientes](#clientes)
+  - [Usuarios](#usuarios)
+  - [Polizas](#polizas)
+  - [Clientes](#clientes)
 
 ## Preguntas
 
