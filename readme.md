@@ -32,7 +32,7 @@ Este es un patrón de deseño de comportamiento que te permite definir un mecani
 ### ¿Cuál es la diferencia entre una base de datos relacional y una base de datos no relacional?
 La más significativa es en como almacenan y gestionan los datos o información, mientras que las bases de datos relacionales organizan los datos en tablas con filas y columnas que a su vez se pueden relacionar entre sí mediante llaves foráneas. Además utilizan el lenguaje SQL para las consultas. A diferencia de las bases de datos no relacionales, que no requieren de una estructura específica para almacenar los datos y permiten almacenar datos en formatos más flexibles, como documentos JSON o pares clave-valor. Además cada motor tiene su propio lenguaje de consultas.
 
-## Ejecución
+## Ejecucion
 
 ### Frontend
 
@@ -65,7 +65,7 @@ https://github.com/JurguenMonge/PopularSegurosBackend.git
 
 > [!NOTE]
 >
-> Se creo un data seeder para crear algunos datos de ejemplo en caso de que no existan datos en la base de datos.
+> Se creo un data seeder para crear algunos datos de ejemplo en caso de que no existan datos en la base de datos solo las pólizas se crean manualmente.
 
 Si se hace desde la consola Consola del Administrador de Paquetes (Package Manager Console)
 
@@ -169,7 +169,6 @@ Ingresamos los datos y presionamos el botón de guardar.
   <img src="/docs/images/img8.png" width="300" alt="Guía de usuario">
 </p>
 
-
 Si desea editar una póliza, presionamos sobre el botón de editar y se nos despliega el formulario para editar la póliza.
 <p align="center">
   <img src="/docs/images/img9.png" width="300" alt="Guía de usuario">
@@ -193,3 +192,43 @@ Si se desea eliminar una póliza, presionamos sobre el botón de eliminar y se n
 ### Clientes
 
 5. **Módulo Clientes**
+
+Al selecionar el módulo de clientes, se mostrará una tabla con todos los clientes registrados.
+<p align="center">
+  <img src="/docs/images/img13.png" width="300" alt="Guía de usuario">
+</p>
+
+Acá se puede filtrar por una coincidencia de palabra y por una columna en específico.
+<p align="center">
+  <img src="/docs/images/img14.png" width="300" alt="Guía de usuario">
+</p>
+
+Si se presiona sobre el botón de insertar un nuevo cliente, se nos despliega un formulario para crear un cliente.
+<p align="center">
+  <img src="/docs/images/img15.png" width="300" alt="Guía de usuario">
+</p>
+
+Ingresamos los datos y presionamos el botón de guardar.
+<p align="center">
+  <img src="/docs/images/img16.png" width="300" alt="Guía de usuario">
+</p>
+
+Si desea editar un cliente, presionamos sobre el botón de editar y se nos despliega el formulario para editar el cliente.
+<p align="center">
+  <img src="/docs/images/img17.png" width="300" alt="Guía de usuario">
+</p>
+
+Se cargará un modal con los datos de la póliza seleccionada.
+<p align="center">
+  <img src="/docs/images/img18.png" width="300" alt="Guía de usuario">
+</p>
+
+Si se desea eliminar un cliente, presionamos sobre el botón de eliminar y se nos despliega un modal para confirmar la eliminación.
+<p align="center">
+  <img src="/docs/images/img19.png" width="300" alt="Guía de usuario">
+</p>
+
+<p align="center">
+  <img src="/docs/images/img20.png" width="300" alt="Guía de usuario">
+</p>
+
