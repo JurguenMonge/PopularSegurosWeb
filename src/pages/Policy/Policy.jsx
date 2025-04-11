@@ -65,13 +65,10 @@ export default function Policy() {
     if (!values.tipoPolizaDescripcion) errors.tipoPolizaDescripcion = "Este campo es obligatorio.";
     if (!values.coberturaDescripcion) errors.coberturaDescripcion = "Este campo es obligatorio.";
     if (!values.estadoPolizaDescripcion) errors.estadoPolizaDescripcion = "Este campo es obligatorio.";
-    if (!values.fechaVencimiento) errors.fechaVencimiento = "Este campo es obligatorio.";
-    if (!values.fechaEmision) errors.fechaEmision = "Este campo es obligatorio.";
     if (!values.prima) errors.prima = "Este campo es obligatorio.";
-    if (!values.periodo) errors.periodo = "Este campo es obligatorio.";
-    if (!values.fechaInclusion) errors.fechaInclusion = "Este campo es obligatorio.";
     if (!values.aseguradora) errors.aseguradora = "Este campo es obligatorio.";
     if (!values.cedulaAsegurado) errors.cedulaAsegurado = "Este campo es obligatorio.";
+    if (!values.montoAsegurado) errors.montoAsegurado = "Este campo es obligatorio.";
     return errors;
   };
 
@@ -82,6 +79,7 @@ export default function Policy() {
       setValidationErrors(errors);
       return; 
     }
+    console.log(errors)
     insertMutate(values);
     table.setCreatingRow(null);
   };

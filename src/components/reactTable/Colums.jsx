@@ -163,6 +163,8 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.fechaVencimiento,
+          helperText: validationErrors?.fechaVencimiento,
           InputLabelProps: { shrink: true },
           type: "date",
           inputProps:{
@@ -179,11 +181,12 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         muiEditTextFieldProps: {
           required: true,
           InputLabelProps: { shrink: true },
+          error: !!validationErrors?.fechaEmision,
+          helperText: validationErrors?.fechaEmision,
           type: "date",
           inputProps:{
             max: new Date().toISOString().split("T")[0],  
           },
-          value: new Date().toISOString().split("T")[0],
         },
       },
       {
@@ -218,6 +221,8 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           required: true,
           InputLabelProps: { shrink: true },
           type: "date",
+          error: !!validationErrors?.periodo,
+          helperText: validationErrors?.periodo,
         },
       },
       {
@@ -230,6 +235,8 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           required: true,
           InputLabelProps: { shrink: true },
           type: "date",
+          error: !!validationErrors?.fechaInclusion,
+          helperText: validationErrors?.fechaInclusion,
         },
       },
       {
