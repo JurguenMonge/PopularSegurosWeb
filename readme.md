@@ -78,15 +78,16 @@ Acá se puede filtrar por una coincidencia de palabra y por una columna en espec
 </p>
 
 Si se presiona sobre el botón de insertar una nueva póliza, se nos despliega un formulario para crear una nueva póliza.
+> [!NOTE]
+>
+> La cédula debe existir en clientes, ya que es una relación e irá al servicio de cliente a revisar si existe o no, en caso de no existir no se creará la póliza.
+
 <p align="center">
   <img src="/docs/images/img7.png" width="300" alt="Guía de usuario">
 </p>
 
 Ingresamos los datos y presionamos el botón de guardar.
 
-> [!NOTE]
->
-> La cédula debe existir en clientes, ya que es una relación e irá al servicio de cliente a revisar si existe o no, en caso de no existir no se creará la póliza.
 <p align="center">
   <img src="/docs/images/img8.png" width="300" alt="Guía de usuario">
 </p>
