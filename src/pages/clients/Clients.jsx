@@ -1,6 +1,6 @@
 //Libraries
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
+import { useState } from "react";
 //Components
 import Spinner from "../../components/Spinner.jsx";
 import CustomTable from "../../components/reactTable/CustomTable.jsx";
@@ -18,6 +18,7 @@ import { SweetAlertEliminar } from "../../assets/js/sweetAlert.js";
 
 export default function Clients() {
   const queryClient = useQueryClient();
+  const [validationErrors, setValidationErrors] = useState({});
 
   const {mutate: insertMutate} = useMutation({
     mutationFn: insertClient,
@@ -73,11 +74,28 @@ export default function Clients() {
   };
 
   const handleSave = async ({ values, table}) => {
+    const errors = validateForm(values);
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return; 
+    }
     insertMutate(values);
     table.setCreatingRow(null);
   };
 
-  const columns = columnsClient();
+  const validateForm = (values) => {
+    const errors = {};
+    if (!values.cedulaAsegurado) errors.cedulaAsegurado = "Este campo es obligatorio.";
+    if (!values.nombre) errors.nombre = "Este campo es obligatorio.";
+    if (!values.primerApellido) errors.primerApellido = "Este campo es obligatorio.";
+    if (!values.segundoApellido) errors.segundoApellido = "Este campo es obligatorio.";
+    if (!values.tipoPersona) errors.tipoPersona = "Este campo es obligatorio.";
+    if (!values.fechaNacimiento) errors.fechaNacimiento = "Este campo es obligatorio.";
+
+    return errors;
+  };
+
+  const columns = columnsClient(validationErrors, setValidationErrors);
   const { userInfo } = useUserContext();
   
   return (

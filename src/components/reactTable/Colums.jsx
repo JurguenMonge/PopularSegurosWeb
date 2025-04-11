@@ -68,9 +68,8 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         filterFn: "startsWith",
         columnFilterModeOptions: filterDefault,
         size: 10,
-        muiEditTextFieldProps: {
-          required: true,
-        },
+        enableEditing: false,
+        Edit: () => null,
       },
       {
         accessorKey: "fechaNacimiento",
@@ -203,7 +202,7 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
   return columns;
 };
 
-export const columnsClient = () => {
+export const columnsClient = (validationErrors, setValidationErrors) => {
   
   const columns = useMemo(
     () => [
@@ -214,6 +213,14 @@ export const columnsClient = () => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.cedulaAsegurado,
+          helperText: validationErrors?.cedulaAsegurado,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              nombre: Val.validateCedula(e.target.value),
+            });
+          },
         },
       },
       {
@@ -224,6 +231,14 @@ export const columnsClient = () => {
         size: 10, 
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.nombre,
+          helperText: validationErrors?.nombre,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              nombre: Val.validateName(e.target.value),
+            });
+          },
         },
       },
       {
@@ -234,6 +249,14 @@ export const columnsClient = () => {
         size: 10, 
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.primerApellido,
+          helperText: validationErrors?.primerApellido,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              primerApellido: Val.validateApellido(e.target.value),
+            });
+          },
         },
       },
       {
@@ -244,6 +267,14 @@ export const columnsClient = () => {
         size: 10, 
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.segundoApellido,
+          helperText: validationErrors?.segundoApellido,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              segundoApellido: Val.validateApellido(e.target.value),
+            });
+          },
         },
       },
       {
@@ -254,22 +285,38 @@ export const columnsClient = () => {
         size: 10, 
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.tipoPersona,
+          helperText: validationErrors?.tipoPersona,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              tipoPersona: Val.validateText(e.target.value),
+            });
+          },
         },
       },
       {
         accessorKey: "fechaNacimiento",
         header: "Fecha de Nacimiento",
         filterFn: "startsWith",
-        columnFilterModeOptions: filterDefault,   
-        size: 10, 
+        columnFilterModeOptions: filterDefault,
+        size: 10,
         muiEditTextFieldProps: {
           required: true,
           InputLabelProps: { shrink: true },
-          type: "date", 
+          type: "date",
+          error: !!validationErrors?.fechaNacimiento,
+          helperText: validationErrors?.fechaNacimiento,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              fechaNacimiento: Val.validateDate(e.target.value),
+            });
+          },
         },
       },
     ],
-    []
+    [validationErrors]
   );
 
   return columns;
