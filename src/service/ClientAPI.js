@@ -35,6 +35,6 @@ export async function updateClient({id, values}) {
     const { data } = await apiServiceClient.put(`Cliente/${id}`, values);
     return data;
   } catch (error) {
-    throw new Error("Ocurrió un error al actualizar el cliente, verifica los campos");
+    throw new Error(error.response.data);
   }
 }

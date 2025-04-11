@@ -28,6 +28,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.numeroPoliza,
+          helperText: validationErrors?.numeroPoliza,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              numeroPoliza: Val.validateNumPoliza(e.target.value),
+            });
+          },
         },
       },
       {
@@ -38,6 +46,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.cedulaAsegurado,
+          helperText: validationErrors?.cedulaAsegurado,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              cedulaAsegurado: Val.validateCedula(e.target.value),
+            });
+          },
         },
       },
       {
@@ -81,6 +97,8 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           InputLabelProps: { shrink: true },
           type: "date",
         },
+        enableEditing: false,
+        Edit: () => null,
       },
       {
         accessorKey: "tipoPolizaDescripcion",
@@ -124,6 +142,17 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         muiEditTextFieldProps: {
           required: true,
           type: "number",
+          inputProps:{
+            min: 1,  
+          },
+          error: !!validationErrors?.montoAsegurado,
+          helperText: validationErrors?.montoAsegurado,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              montoAsegurado: Val.validatePositiveNumber(e.target.value),
+            });
+          },
         },
       },
       {
@@ -136,6 +165,9 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           required: true,
           InputLabelProps: { shrink: true },
           type: "date",
+          inputProps:{
+            min: new Date().toISOString().split("T")[0],  
+          }
         },
       },
       {
@@ -148,6 +180,10 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
           required: true,
           InputLabelProps: { shrink: true },
           type: "date",
+          inputProps:{
+            max: new Date().toISOString().split("T")[0],  
+          },
+          value: new Date().toISOString().split("T")[0],
         },
       },
       {
@@ -158,7 +194,18 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          inputProps:{
+            min: 1,
+          },
           type: "number",
+          error: !!validationErrors?.prima,
+          helperText: validationErrors?.prima,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              prima: Val.validatePositiveNumber(e.target.value),
+            });
+          },
         },
       },
       {
@@ -193,6 +240,14 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          error: !!validationErrors?.aseguradora,
+          helperText: validationErrors?.aseguradora,
+          onBlur: (e) => {
+            setValidationErrors({
+              ...validationErrors,
+              aseguradora: Val.validateText(e.target.value),
+            });
+          },
         },
       },
     ],
@@ -303,6 +358,9 @@ export const columnsClient = (validationErrors, setValidationErrors) => {
         size: 10,
         muiEditTextFieldProps: {
           required: true,
+          inputProps:{
+            max: new Date().toISOString().split("T")[0],  
+          },
           InputLabelProps: { shrink: true },
           type: "date",
           error: !!validationErrors?.fechaNacimiento,

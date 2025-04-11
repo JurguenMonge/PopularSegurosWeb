@@ -59,23 +59,30 @@ export default function Policy() {
     },
   });
 
+  const validateForm = (values) => {
+    const errors = {};
+    if (!values.numeroPoliza) errors.numeroPoliza = "Este campo es obligatorio.";
+    if (!values.tipoPolizaDescripcion) errors.tipoPolizaDescripcion = "Este campo es obligatorio.";
+    if (!values.coberturaDescripcion) errors.coberturaDescripcion = "Este campo es obligatorio.";
+    if (!values.estadoPolizaDescripcion) errors.estadoPolizaDescripcion = "Este campo es obligatorio.";
+    if (!values.fechaVencimiento) errors.fechaVencimiento = "Este campo es obligatorio.";
+    if (!values.fechaEmision) errors.fechaEmision = "Este campo es obligatorio.";
+    if (!values.prima) errors.prima = "Este campo es obligatorio.";
+    if (!values.periodo) errors.periodo = "Este campo es obligatorio.";
+    if (!values.fechaInclusion) errors.fechaInclusion = "Este campo es obligatorio.";
+    if (!values.aseguradora) errors.aseguradora = "Este campo es obligatorio.";
+    if (!values.cedulaAsegurado) errors.cedulaAsegurado = "Este campo es obligatorio.";
+    return errors;
+  };
+
 
   const handleSave = async ({ values, table }) => {
-    const transformedValues = {
-      NumeroPoliza: values.numeroPoliza,
-      TipoPolizaDescripcion: values.tipoPolizaDescripcion,
-      CoberturaDescripcion: values.coberturaDescripcion,
-      EstadoPolizaDescripcion: values.estadoPolizaDescripcion,
-      MontoAsegurado: parseFloat(values.montoAsegurado),
-      FechaVencimiento: values.fechaVencimiento,
-      FechaEmision: values.fechaEmision,
-      Prima: parseFloat(values.prima),
-      Periodo: values.periodo,
-      FechaInclusion: values.fechaInclusion,
-      Aseguradora: values.aseguradora,
-      CedulaAsegurado: values.cedulaAsegurado,
-    };
-    insertMutate(transformedValues);
+    const errors = validateForm(values);
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      return; 
+    }
+    insertMutate(values);
     table.setCreatingRow(null);
   };
 
@@ -94,7 +101,7 @@ export default function Policy() {
     );
   };
 
-  const columns = columnsPolicys(validationErrors, setValidationErrors, false);
+  const columns = columnsPolicys(validationErrors, setValidationErrors);
   const { userInfo } = useUserContext();
   return (
     <>

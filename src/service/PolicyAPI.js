@@ -17,7 +17,7 @@ export async function insertPolicy(formData) {
     const { data } = await apiServicePolicy.post("Policy", formData);
     return data;
   } catch (error) {
-    throw new Error("Ocurrió un error al guardar la póliza, verifica los campos y que el cliente exista");
+    throw new Error(error.response.data);
   }
 }
 //Eliminar una poliza

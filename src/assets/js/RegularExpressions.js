@@ -48,3 +48,5 @@ export const valueBookRegex = /^(?:\d{1,3}(?:\.\d{3})*|\d+)(?:,\d{2})?$/;
 
 // Validación de Cédulas Costarricenses y Extranjeras
 export const costaricanIdRegex = /^(\d{9}|\d{1,4}-\d{9}|[a-zA-Z0-9\- ]+)$/;
+
+export const policyRegex = /^[a-zA-Z0-9-]+$/;
