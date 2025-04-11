@@ -6,12 +6,12 @@
 
 Este proyecto es una prueba técnica de Popular Seguros, a continuación se estará detallando el uso de la aplicación y respondiendo las preguntas de respuesta corta.
 
-> [!NOTE]
->
-> Instalar las dependencias con el comando ``` npm install ```, luego ejecutar el comando ``` npm run dev ``` para iniciar el servidor de desarrollo.
-
 ## Tabla de contenido
 - [Preguntas](#preguntas)
+- [Ejecucion](#ejecucion)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
+  - [Login](#login)
 - [Uso](#uso)
   - [Usuarios](#usuarios)
   - [Polizas](#polizas)
@@ -31,6 +31,83 @@ Este es un patrón de deseño de comportamiento que te permite definir un mecani
 
 ### ¿Cuál es la diferencia entre una base de datos relacional y una base de datos no relacional?
 La más significativa es en como almacenan y gestionan los datos o información, mientras que las bases de datos relacionales organizan los datos en tablas con filas y columnas que a su vez se pueden relacionar entre sí mediante llaves foráneas. Además utilizan el lenguaje SQL para las consultas. A diferencia de las bases de datos no relacionales, que no requieren de una estructura específica para almacenar los datos y permiten almacenar datos en formatos más flexibles, como documentos JSON o pares clave-valor. Además cada motor tiene su propio lenguaje de consultas.
+
+## Ejecución
+
+### Frontend
+
+1. Primero debemos clonar el repositorio
+```
+https://github.com/JurguenMonge/PopularSegurosWeb.git
+```
+
+2. Una vez clonado, debemos entrar en la carpeta del proyecto y ejecutar lo siguiente
+
+Primero debemos instalar las dependencias con el comando 
+```
+  npm install
+```
+
+y luego ejecutar el siguiente comando para iniciar el servidor de desarrollo.
+``` 
+npm run dev 
+``` 
+
+### Backend
+3. Primero debemos clonar el repositorio
+
+Lo mejor es clonarlo desde Visual Studio 2022
+```
+https://github.com/JurguenMonge/PopularSegurosBackend.git
+```
+
+4. Ejecutar las migraciones
+
+> [!NOTE]
+>
+> Se creo un data seeder para crear algunos datos de ejemplo en caso de que no existan datos en la base de datos.
+
+Si se hace desde la consola Consola del Administrador de Paquetes (Package Manager Console)
+
+```
+Add-Migration InitialCreate
+```
+
+```
+Update-Database
+```
+
+Si se hacer desde CLI
+
+```
+dotnet ef migrations add InitialCreate
+```
+
+```
+dotnet ef database update
+```
+
+5. Ejecutar todos los proyectos
+Para hacer esto, debemos dar click derecho en Solucion "PopularSegurosBackend" > Propiedades > Configurar proyectos de inicio > Seleccionar todos los proyectos > Botón "Inicia"
+
+### Login
+6. Cuando se ejecutan las migraciones, se crearán los usuarios y las claves de acceso.
+
+**Allam**
+```
+Correo electrónico: allfernandez@bp.fi.cr 
+```
+```
+Password: allfernandez2025 
+```
+
+**Alejandro**
+```
+Correo electrónico: alecampos@bp.fi.cr
+```
+```
+Password: alecampos2025 
+```
 
 ## Uso
 
