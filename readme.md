@@ -6,6 +6,10 @@
 
 Este proyecto es una prueba técnica de Popular Seguros, a continuación se estará detallando el uso de la aplicación y respondiendo las preguntas de respuesta corta.
 
+> [!NOTE]
+>
+> Instalar las dependencias con el comando ``` npm install ```, luego ejecutar el comando ``` npm run dev ``` para iniciar el servidor de desarrollo.
+
 ## Tabla de contenido
 - [Preguntas](#preguntas)
 - [Uso](#uso)
