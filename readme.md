@@ -33,6 +33,7 @@ La más significativa es en como almacenan y gestionan los datos o información,
 1. **Registro de usuario**
 
 Accedemos a la vista principal, el login, y en ella elegimos la opción de ¡Crear una cuenta!.
+También el proyecto cuenta con modo oscuro/claro, se puede cambiar al presionar el botón de la esquina superior derecha.
 <p align="center">
   <img src="/docs/images/img1.png" width="300" alt="Guía de usuario">
 </p>
