@@ -13,6 +13,9 @@ Este proyecto es una prueba técnica de Popular Seguros, a continuación se esta
 ## Tabla de contenido
 - [Preguntas](#preguntas)
 - [Uso](#uso)
+  -[Usuarios](#usuarios)
+  -[Polizas](#polizas)
+  -[Clientes](#clientes)
 
 ## Preguntas
 
@@ -30,6 +33,8 @@ Este es un patrón de deseño de comportamiento que te permite definir un mecani
 La más significativa es en como almacenan y gestionan los datos o información, mientras que las bases de datos relacionales organizan los datos en tablas con filas y columnas que a su vez se pueden relacionar entre sí mediante llaves foráneas. Además utilizan el lenguaje SQL para las consultas. A diferencia de las bases de datos no relacionales, que no requieren de una estructura específica para almacenar los datos y permiten almacenar datos en formatos más flexibles, como documentos JSON o pares clave-valor. Además cada motor tiene su propio lenguaje de consultas.
 
 ## Uso
+
+### Usuarios
 1. **Registro de usuario**
 
 Accedemos a la vista principal, el login, y en ella elegimos la opción de ¡Crear una cuenta!.
@@ -43,9 +48,70 @@ Ingresamos nuestros datos y nos registramos.
   <img src="/docs/images/img2.png" width="300" alt="Guía de usuario">
 </p>
 
+2. **Inicio de sesión**
+
 Una vez enviada la solicitud de registro de forma exitosa, nos redirigirá al login, e ingresaremos nuestras credenciales.
 <p align="center">
   <img src="/docs/images/img3.png" width="300" alt="Guía de usuario">
 </p>
 
+3. **Cerrar sesión**
 
+Presionamos sobre nuestro nombre en la barra de navegación y en la opción de cerrar sesión.
+<p align="center">
+  <img src="/docs/images/img4.png" width="300" alt="Guía de usuario">
+</p>
+
+### Polizas
+
+4. **Módulo Pólizas**
+
+Al iniciar sesión nos redirige al módulo de pólizas, donde podemos ver, crear, editar y eliminar una póliza.
+Además la tabla cuenta con todo tipo de filtros, ordenamiento por columna y paginación.
+<p align="center">
+  <img src="/docs/images/img5.png" width="300" alt="Guía de usuario">
+</p>
+
+Acá se puede filtrar por una coincidencia de palabra y por una columna en específico.
+<p align="center">
+  <img src="/docs/images/img6.png" width="300" alt="Guía de usuario">
+</p>
+
+Si se presiona sobre el botón de insertar una nueva póliza, se nos despliega un formulario para crear una nueva póliza.
+<p align="center">
+  <img src="/docs/images/img7.png" width="300" alt="Guía de usuario">
+</p>
+
+Ingresamos los datos y presionamos el botón de guardar.
+
+> [!NOTE]
+>
+> La cédula debe existir en clientes, ya que es una relación e irá al servicio de cliente a revisar si existe o no, en caso de no existir no se creará la póliza.
+<p align="center">
+  <img src="/docs/images/img8.png" width="300" alt="Guía de usuario">
+</p>
+
+
+Si desea editar una póliza, presionamos sobre el botón de editar y se nos despliega el formulario para editar la póliza.
+<p align="center">
+  <img src="/docs/images/img9.png" width="300" alt="Guía de usuario">
+</p>
+
+Se cargará un modal con los datos de la póliza seleccionada.
+<p align="center">
+  <img src="/docs/images/img10.png" width="300" alt="Guía de usuario">
+</p>
+
+Si se desea eliminar una póliza, presionamos sobre el botón de eliminar y se nos despliega un modal para confirmar la eliminación.
+<p align="center">
+  <img src="/docs/images/img11.png" width="300" alt="Guía de usuario">
+</p>
+
+<p align="center">
+  <img src="/docs/images/img12.png" width="300" alt="Guía de usuario">
+</p>
+
+
+### Clientes
+
+5. **Módulo Clientes**

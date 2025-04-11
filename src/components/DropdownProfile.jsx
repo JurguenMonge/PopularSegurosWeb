@@ -85,7 +85,7 @@ function DropdownProfile({
                   setDropdownOpen(!dropdownOpen);
                 }}
               >
-                Sign Out
+                Cerrar sesión
               </Link>
             </li>
           </ul>

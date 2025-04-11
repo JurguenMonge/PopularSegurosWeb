@@ -68,6 +68,9 @@ export const columnsPolicys = (validationErrors, setValidationErrors) => {
         filterFn: "startsWith",
         columnFilterModeOptions: filterDefault,
         size: 10,
+        muiEditTextFieldProps: {
+          required: true,
+        },
       },
       {
         accessorKey: "fechaNacimiento",
